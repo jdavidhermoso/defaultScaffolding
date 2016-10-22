@@ -1,6 +1,18 @@
 {
   "name": "defaultScafolder",
-  "version": "0.0.1",
-  "dependencies": {
-  }
+  "description": "Personal default scafolder to starting my projects",
+  "main": "",
+  "authors": [
+    "JDavidHermoso"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "dist/vendors",
+    "test",
+    "tests"
+  ]
 }
