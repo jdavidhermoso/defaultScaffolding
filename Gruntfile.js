@@ -8,7 +8,7 @@ module.exports = function (grunt) {
           }
         },
         files: {
-          'dist/js/main.min.js': ['app/scripts/*.js']
+          'dist/scripts/main.min.js': ['app/scripts/*.js']
         }
       }
     },
@@ -32,7 +32,7 @@ module.exports = function (grunt) {
       }
     },
     watch: {
-      files: ['app/styles/**/*.scss','app/scripts/**/*.js',],
+      files: ['app/styles/**/*.scss','app/scripts/**/*.js','app/index.html'],
       tasks: ['sass','checks','copy']
     },
     jscs: {
@@ -48,7 +48,7 @@ module.exports = function (grunt) {
     copy: {
       js: {
         files: [
-          {expand: true, cwd: 'app/scripts', src: ['**'], dest: 'dist/js'},
+          {expand: true, cwd: 'app/scripts', src: ['**'], dest: 'dist/scripts'},
 
         ],
       },
@@ -79,7 +79,7 @@ module.exports = function (grunt) {
       }
     },
     clean: {
-      js: ['dist/js/*.js', '!dist/js/r/*.min.js'],
+      js: ['dist/scripts/*.js', '!dist/scripts/r/*.min.js'],
       css: ['dist/styles/*.css', '!dist/styles/*.min.css']
     }
   });
