@@ -1,6 +1,6 @@
 {
-  "name": "defaultScaffolder",
-  "description": "Personal default scaffolder to starting my projects",
+  "name": "gruntTasksCheatSheet",
+  "description": "This is a grunt tasks cheatsheet generator built with BackboneJS",
   "main": "",
   "authors": [
     "JDavidHermoso"
@@ -14,5 +14,8 @@
     "dist/vendors",
     "test",
     "tests"
-  ]
+  ],
+  "devDependencies": {
+    "backbone": "^1.3.3"
+  }
 }
