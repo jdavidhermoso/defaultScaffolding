@@ -94,8 +94,8 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-clean');
 
-  grunt.registerTask('dev', ['check:js', 'check:css', 'cssmin', 'copy', 'watch']);
-  grunt.registerTask('dist', ['check:js', 'check:css', 'clean:js', 'clean:css']);
+  grunt.registerTask('dev', ['cssmin', 'copy', 'watch']);
+  grunt.registerTask('dist', ['checks', 'clean:js', 'clean:css']);
   grunt.registerTask('check:js', ['jscs', 'jshint']);
   grunt.registerTask('check:css', ['sass', 'sasslint']);
   grunt.registerTask('checks', ['check:js', 'check:css']);
