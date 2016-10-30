@@ -1,16 +1,17 @@
 var app = app || {},
   gruntTaskFormView = Backbone.View.extend({
-    el: '#gtc-task-form-wrapper',
+    tagName: 'form',
+    id: 'gtc-task-form',
     totalTasksTpl: _.template( $('#gtc-task-form-tpl').html() ),
     events: {
       'click #gtc-task-save-btn' : 'saveGruntTask'
     },
     initialize: function() {
-      this.$saveGruntTaskBtn = this.$('#gtc-task-save-btn');
-      this.$gruntTaskTypeSelect = this.$('#gtc-task-type-select');
+
     },
     render: function(taskAttrs) {
       this.$el.html(this.totalTasksTpl(taskAttrs));
+      $("#gtc-task-form-wrapper").html(this.$el);
     },
     gruntTaskProperties: function() {
       return {
@@ -21,9 +22,7 @@ var app = app || {},
     },
     saveGruntTask: function() {
       app.gTasks.create(this.gruntTaskProperties());
-
-      this.$('#gtc-task-name').val('');
-      this.$('#gtc-task-desc').val('');
+      this.remove();
     },
     getTaskTypeName: function(taskType) {
       var taskTypes = ['dev','dist','other'],

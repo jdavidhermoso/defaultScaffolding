@@ -4,14 +4,12 @@ app.gruntTasksListView = Backbone.View.extend({
   el: '#gtc-task-list',
   totalTasksTpl: _.template($('#gtc-task-tpl').html()),
   events: {
-    'click #gtc-new-task-btn': 'showNewTaskForm',
-    'click .gtc-task': 'showTaskInfo'
+    'click #gtc-new-task-btn': 'showNewTaskForm'
   },
   initialize: function () {
-    app.gTasks.fetch();
-  },
-  showTaskInfo: function () {
 
+    this.listenTo(app.gTasks, 'add', this.addGruntTask);
+    app.gTasks.fetch();
   },
   showNewTaskForm: function () {
     var gruntTaskForm = new gruntTaskFormView({});
@@ -22,5 +20,12 @@ app.gruntTasksListView = Backbone.View.extend({
         taskDesc: ''
       }
     );
-  }
+  },
+  addGruntTask: function(gruntTask) {
+    var gruntTaskView = new app.gruntTasksListItemView({
+      model: gruntTask
+    });
+    console.log(this.$el[0].append(gruntTaskView.render().el));
+    //this.$el.append();
+  },
 });
