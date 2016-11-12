@@ -14,6 +14,22 @@ module.exports = function (grunt) {
       },
       target: ['app/styles/**/*.scss']
     },
+    copy: {
+      css: {
+        files: [
+          {
+            expand: true,
+            cwd: 'app/styles',
+            src: ['*.css'],
+            dest: 'dist/styles'
+          }
+        ]
+      }
+    },
+    watch: {
+      files: ['app/styles/**/*.scss','app/scripts/**/*.js','app/index.html'],
+      tasks: ['dev']
+    },
   });
 
   grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -26,5 +42,6 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-clean');
 
-  grunt.registerTask('default', ['sasslint', 'sass']);
+  grunt.registerTask('dev', ['sasslint', 'sass','copy:css','watch']);
+  grunt.registerTask('default', ['dev']);
 };
