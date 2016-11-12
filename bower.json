@@ -1,6 +1,6 @@
 {
-  "name": "gruntTasksCheatSheet",
-  "description": "This is a grunt tasks cheatsheet generator built with BackboneJS",
+  "name": "defaultScaffolding",
+  "description": "Default scaffolding for starting my personal projects",
   "main": "",
   "authors": [
     "JDavidHermoso"
@@ -15,9 +15,5 @@
     "test",
     "tests"
   ],
-  "devDependencies": {
-    "backbone": "^1.3.3",
-    "materialize": "^0.97.7",
-    "backbone.localStorage": "^1.1.16"
-  }
+  "devDependencies": {}
 }
