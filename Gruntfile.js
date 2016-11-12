@@ -6,7 +6,14 @@ module.exports = function (grunt) {
           'dist/styles/main.css': 'app/styles/main.scss'
         }
       }
-    }
+    },
+    sasslint: {
+      options: {
+        configFile: '.sass-lint.yml',
+        outputFile: 'app/styles/sass-lint-report.xml'
+      },
+      target: ['app/styles/**/*.scss']
+    },
   });
 
   grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -19,5 +26,5 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-clean');
 
-  grunt.registerTask('default', ['sass']);
-}
+  grunt.registerTask('default', ['sasslint', 'sass']);
+};
