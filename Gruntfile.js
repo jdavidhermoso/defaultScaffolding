@@ -1,86 +1,11 @@
 module.exports = function (grunt) {
   grunt.initConfig({
-    uglify: {
-      dist: {
-        options: {
-          compress: {
-            drop_console: true
-          }
-        },
-        files: {
-          'dist/scripts/main.min.js': ['app/scripts/*.js']
-        }
-      }
-    },
     sass: {
-      files: {
-        'dist/styles/main.css': 'app/styles/main.scss'
-      }
-    },
-    sasslint: {
-      options: {
-        configFile: '.sass-lint.yml',
-        outputFile: 'app/styles/sass-lint-report.xml'
-      },
-      target: ['app/styles/**/*.scss']
-    },
-    cssmin: {
-      dist: {
+      dev: {
         files: {
-          'dist/styles/main.min.css': ['app/styles/*.css']
+          'dist/styles/main.css': 'app/styles/main.scss'
         }
       }
-    },
-    watch: {
-      files: ['app/styles/**/*.scss','app/scripts/**/*.js','app/index.html'],
-      tasks: ['sass','checks','copy']
-    },
-    jscs: {
-      src: "app/scripts/*.js",
-      options: {
-        config: ".jscsrc",
-        fix: false
-      }
-    },
-    jshint: {
-      beforeconcat: ['app/scripts/*.js']
-    },
-    copy: {
-      js: {
-        files: [
-          {expand: true, cwd: 'app/scripts', src: ['**'], dest: 'dist/scripts'},
-
-        ],
-      },
-      css: {
-        files: [
-          {expand: true, cwd: 'app/styles', src: ['*.css'], dest: 'dist/styles'},
-        ],
-      },
-      images: {
-        files: [
-          {expand: true, cwd: 'app/images', src: ['**'], dest: 'dist/images'},
-        ],
-      },
-      fonts: {
-        files: [
-          {expand: true, cwd: 'app/fonts', src: ['**'], dest: 'dist/fonts'},
-        ]
-      },
-      other: {
-        files: [
-          {
-            expand: true,
-            cwd: 'app',
-            src: ['favicon.ico', 'apple-touch-icon.png', 'index.html', 'robots.txt'],
-            dest: 'dist'
-          },
-        ],
-      }
-    },
-    clean: {
-      js: ['dist/scripts/*.js', '!dist/scripts/r/*.min.js'],
-      css: ['dist/styles/*.css', '!dist/styles/*.min.css']
     }
   });
 
@@ -94,10 +19,5 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-clean');
 
-  grunt.registerTask('dev', ['cssmin', 'copy', 'watch']);
-  grunt.registerTask('dist', ['checks', 'clean:js', 'clean:css']);
-  grunt.registerTask('check:js', ['jscs', 'jshint']);
-  grunt.registerTask('check:css', ['sass', 'sasslint']);
-  grunt.registerTask('checks', ['check:js', 'check:css']);
-  grunt.registerTask('default', ['dev']);
+  grunt.registerTask('default', ['sass']);
 }
