@@ -1,10 +1,5 @@
-# Event delegation in Javascript
-## Example of how Event Delegation Works in Javascript.
-
-###Articles:
-https://davidwalsh.name/event-delegate
-https://learn.jquery.com/events/event-delegation/
+# Default personal scaffolding
+## This is a personal scaffolding to clone from and start my front-end projects
 
 ###### Steps for deploying
 1. **npm install**
-2. **grunt start**

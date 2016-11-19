@@ -1,7 +1,7 @@
 {
-  "name": "eventDelegationJS",
+  "name": "defaultScaffolding",
   "version": "0.0.1",
-  "description": "Example of Event delegation in Javascript",
+  "description": "Default scaffolding for starting my personal projects",
   "dependencies": {},
   "scripts": {},
   "author": "JDavidHermoso",
